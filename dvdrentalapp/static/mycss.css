@@ -1,0 +1,56 @@
+body {
+    background-color: #e5e5e5;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 20px;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+/* Tabela */
+table {
+    width: 70%;
+    margin: auto;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Cabeçalho */
+th {
+    background-color: black;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Células */
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover */
+tr:hover {
+    background-color: #d1ecf1;
+    cursor: pointer;
+}
+
+/* Status */
+.ativo {
+    color: green;
+    font-weight: bold;
+}
+
+.inativo {
+    color: red;
+    font-weight: bold;
+}

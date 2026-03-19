@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Ator</title>
+</head>
+<body>
+
+<h2>Editar Ator</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <label for="first_name">Primeiro Nome:</label><br>
+    <input type="text" id="first_name" name="first_name" value="{{ myactor.first_name }}"><br>
+
+    <label for="last_name">Último Nome:</label><br>
+    <input type="text" id="last_name" name="last_name" value="{{ myactor.last_name }}"><br>
+    <!-- Adicione outros campos conforme necessário -->
+
+    <input type="submit" value="Salvar Alterações">
+</form>
+
+</body>
+</html>

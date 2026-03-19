@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+    <h1>Category</h1>
+
+    {% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Enviar</button>
+    </form>
+
+    <ul>
+        <a href="/categorias"><button>Ver lista de categorias</button></a>
+    </ul>
+    {% endblock %}
+
+    </body>
+</html>
+

@@ -1,0 +1,42 @@
+body {
+    background-color: gray;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Título */
+h1 {
+    color: white;
+    text-align: center;
+}
+
+/* Lista */
+ul {
+    list-style-type: none; /* remove bolinhas */
+    padding: 0;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Cada cliente */
+li {
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 2px solid black;
+    transition: 0.3s;
+}
+
+/* Efeito ao passar o mouse */
+li:hover {
+    background-color: darkblue;
+    transform: scale(1.02);
+}
+
+/* Alternar cores (zebra) */
+li:nth-child(even) {
+    background-color: #1e90ff;
+}

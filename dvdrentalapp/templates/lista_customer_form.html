@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h1>Customers</h1>
+
+    <form action="{% url 'lista_customer_form' %}" method="get">
+        <label for="search_name">Procura pelo first_name:</label>
+        <input type="text" id="search_name" name="search_name">
+        <button type="submit">Procurar</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in lista_customer_form %}
+                <tr>
+                    <td data-label="id">{{ x.customer_id }}</td>
+                    <td data-label="first_name">{{ x.first_name }}</td>
+                    <td data-label="last_name">{{ x.last_name }}</td>
+                    <td data-label="">
+                        <a href="{% url 'edit_customer' x.customer_id %}"><button>edite</button></a>
+                        <a href="{% url 'add_customer' %}"><button>novo</button></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

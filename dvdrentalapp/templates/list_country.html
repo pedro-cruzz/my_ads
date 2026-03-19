@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="{% static 'country.css' %}">
+<body>
+
+<h1>country</h1>
+
+<ul>
+    {% for x in listcountry %}
+        <li>{{ x.country_id }} - {{ x.country }}</li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

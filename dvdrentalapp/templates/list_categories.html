@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listagem de Categorias</title>
+</head>
+
+<body>
+
+<h2>Listagem de Categorias</h2>
+
+<ul>
+    {% for category in categories %}
+        <li>{{ category.name }}</li>
+    {% endfor %}
+</ul>
+
+<!-- Botão para adicionar uma nova categoria -->
+<a href="/add_categorias">
+    <button>Adicionar Nova Categoria</button>
+</a>
+<a href="/category_form">
+    <button>Adicionar Nova Categoria com formulário</button>
+</a>
+
+
+</body>
+</html>

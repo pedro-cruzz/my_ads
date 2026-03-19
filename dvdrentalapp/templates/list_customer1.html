@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h1>Customers</h1>
+    <ul>
+        <p>Filtro AND</p>
+        {% for x in mycustomersand %}
+            <li>{{ x.customer_id }} - {{ x.first_name }} {{ x.last_name }}</li>
+        {% endfor %}
+        <p>Filtro OR</p>
+        {% for x in mycustomersor %}
+            <li>{{ x.customer_id }} - {{ x.first_name }} {{ x.last_name }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

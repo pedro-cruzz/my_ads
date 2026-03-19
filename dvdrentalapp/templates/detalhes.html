@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h2>Detalhes para {{ customer_name }}</h2>
+
+<p>Back to <a href="/customer">Customers</a></p>
+
+<table border="1">
+    <tr>
+        <th>inventory_id</th>
+        <th>rental_date</th>
+        <th>email</th>
+        <th>active</th>
+
+    </tr>
+    {% for x in myDetalhes %}
+    <tr>
+        <td>{{ x.inventory_id }}</td>
+        <td>{{ x.rental_date }}</td>
+        <td>{{ customer_email }}</td>
+        <td>Status:
+            {% if customer_active %}
+                Ativo
+            {% else %}
+                Inativo
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

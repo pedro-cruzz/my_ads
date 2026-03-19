@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'mycss.css' %}">
+</head>
+<body>
+
+<h1>Customers</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for x in mycustomersstatic %}
+        <tr>
+            <td>{{ x.customer_id }}</td>
+            <td>{{ x.first_name }} {{ x.last_name }}</td>
+            <td>
+                {% if x.active %}
+                    <span class="ativo">Ativo</span>
+                {% else %}
+                    <span class="inativo">Inativo</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

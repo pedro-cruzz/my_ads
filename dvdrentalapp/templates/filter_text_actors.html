@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h1>Actors</h1>
+
+    <form action="{% url 'filter_actor' %}" method="get">
+        <label for="search_name">Procura pelo first_name:</label>
+        <input type="text" id="search_name" name="search_name">
+        <button type="submit">Procurar</button>
+    </form>
+
+    <ul>
+        {% for x in filter_text_actor %}
+            <li>{{ x.actor_id }} - {{ x.first_name }} {{ x.last_name }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

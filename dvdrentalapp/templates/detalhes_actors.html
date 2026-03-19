@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h2>Detalhes para filmes feitos pelo ator {{ Actor.first_name  }}</h2>
+
+<p>Back to <a href="/actor">Actors</a></p>
+
+<table border="1">
+    <tr>
+        <th>title</th>
+        <th>description</th>
+        <th>rating</th>
+    </tr>
+    {% for x in myDetalheFilm %}
+    <tr>
+        <td>{{ x.title }}</td>
+        <td>{{ x.description }}</td>
+        <td>{{ x.rating }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

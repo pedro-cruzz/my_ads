@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Customers</h1>
+<ul>
+    <p>busca com contains</p>
+    {% for x in mycustomerlistacontains %}
+        <li>{{ x.first_name }} {{ x.last_name }} </li>
+    {% endfor %}
+    <br>
+    <p>busca com icontains</p>
+    {% for x in mycustomerlistaicontains %}
+        <li>{{ x.first_name }} {{ x.last_name }} </li>
+    {% endfor %}
+    <br>
+    <p>busca com endswitch</p>
+    {% for x in mycustomerlistaendswith %}
+        <li>{{ x.first_name }} </li>
+    {% endfor %}
+    <br>
+    <p>busca com iendswitch</p>
+    {% for x in mycustomerlistaiendswith %}
+        <li>{{ x.first_name }} </li>
+    {% endfor %}
+    <br>
+    <p>busca com exact</p>
+    {% for x in mycustomerlistaexact %}
+        <li>{{ x.first_name }} </li>
+    {% endfor %}
+    <br>
+    <p>busca com iexact</p>
+    {% for x in mycustomerlistaiexact %}
+        <li>{{ x.first_name }} </li>
+    {% endfor %}
+    <br>
+    <p>busca com in</p>
+    {% for x in mycustomerlistain %}
+        <li>{{ x.first_name }} </li>
+    {% endfor %}
+    <br>
+    <p>busca com gt</p>
+    {% for x in mycustomerlistagt %}
+        <li>{{ x.customer_id }} - {{ x.first_name }} </li>
+    {% endfor %}
+    <br>
+    <p>busca com gte</p>
+    {% for x in mycustomerlistagte %}
+        <li>{{ x.customer_id }} - {{ x.first_name }} </li>
+    {% endfor %}
+    <br>
+    <p>busca com lt</p>
+    {% for x in mycustomerlistalt %}
+        <li>{{ x.customer_id }} - {{ x.first_name }} </li>
+    {% endfor %}
+    <br>
+    <p>busca com lte</p>
+    {% for x in mycustomerlistalte %}
+        <li>{{ x.customer_id }} - {{ x.first_name }} </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

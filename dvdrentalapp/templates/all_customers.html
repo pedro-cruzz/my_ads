@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Customers</h1>
+<ul>
+    {% for x in mycustomer %}
+        <li>{{ x.first_name }} {{ x.last_name }} 
+            <a href="/detalhes/{{ x.customer_id }}"><button>detalhes</button></a>
+            <a href="/edite/{{ x.customer_id }}"><button>edite</button></a>
+        </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

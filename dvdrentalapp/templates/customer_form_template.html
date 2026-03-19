@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Customers</h1>
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Enviar</button>
+</form>
+<ul>
+    <li>
+        <a href="/customer"><button>Lista de customer</button></a>
+    </li>
+</ul>
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listagem de Linguas</title>
+</head>
+
+<body>
+
+<h2>Listagem de Linguas</h2>
+
+<ul>
+    {% for language in languages %}
+        <li>{{ language.name }}</li>
+    {% endfor %}
+</ul>
+
+<!-- Botão para adicionar uma nova categoria -->
+<a href="/add_linguas">
+    <button>Adicionar Nova Lingua</button>
+</a>
+
+</body>
+</html>
