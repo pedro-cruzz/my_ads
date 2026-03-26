@@ -1,6 +1,11 @@
 from django.http import HttpResponse
 from django.template import loader
 from .models import Customer , Actor , Rental, Film, Category, Language, Country
+
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
+from django.contrib.auth import authenticate, login, update_session_auth_hash, logout
+from django.contrib.auth.decorators import login_required
+
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .forms import CustomerForm, CategoryForm
@@ -262,13 +267,104 @@ def category_form(request):
 def salva(request):
     return render(request, 'salva.html')
 
-def customer_form(request):
+# form category + search category (edite e adcione)
+def lista_category_form(request):
+    # Obtém o valor de 'search_name' da requisição GET, retorna None se não encontrado
+    search_name = request.GET.get('search_name', '')
+
+    if search_name:
+        # Filtra os clientes pelo nome fornecido
+        lista_category_form = Category.objects.filter(first_name__contains=search_name).values()
+    else:
+        # Retorna todos os clientes se nenhum nome for fornecido
+        lista_category_form = Category.objects.all().values()
+
+    template = loader.get_template('lista_category_form.html')
+    context = {
+        'lista_category_form': lista_category_form,
+    }
+    return HttpResponse(template.render(context, request))
+
+def edit_category(request, id):
+    category = get_object_or_404(Category, pk=id)
+
     if request.method == 'POST':
-        form = CustomerForm(request.POST)
+        form = CategoryForm(request.POST, instance=category)
         if form.is_valid():
             form.save()
+            return redirect('lista_category_form')
+    else:
+        form = CategoryForm(instance=category)
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'edite_category.html', context)
+
+def add_category(request):
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_category_form')
+    else:
+        form = CategoryForm()
+
+    context = {
+        'form': form,
+    }
+    return render(request, 'adicionar_category.html', context)
+
+#cadastrar usuario
+def cadastrar_usuario(request):
+    if request.method == "POST":
+        form_usuario = UserCreationForm(request.POST)
+        if form_usuario.is_valid():
+            form_usuario.save()
             return redirect('salva')
     else:
-        form = CustomerForm()
+        form_usuario = UserCreationForm()
 
-    return render(request, 'Customer_form.html', {'form': form})
+    return render(request, 'cadastro.html', {'form_usuario': form_usuario})
+
+def logar_usuario(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        usuario = authenticate(request, username=username, password=password)
+
+        if usuario is not None:
+            login(request, usuario)
+            return redirect('logado')
+        else:
+            form_login = AuthenticationForm()
+    else:
+        form_login = AuthenticationForm()
+
+    return render(request, 'login.html', {'form_login': form_login})
+
+def logado(request):
+    return render(request, 'logado.html')
+
+@login_required
+def deslogar_usuario(request):
+    logout(request)
+    return redirect('home')
+
+@login_required
+def alterar_senha(request):
+    if request.method == "POST":
+        form_senha = PasswordChangeForm(request.user, request.POST)
+        if form_senha.is_valid():
+            user = form_senha.save()
+            update_session_auth_hash(request, user)  # mantém logado
+            return redirect('home')
+    else:
+        form_senha = PasswordChangeForm(request.user)
+
+    return render(request, 'alterar_senha.html', {'form_senha': form_senha})
+
+
+def home(request):
+    return render(request, 'home.html')

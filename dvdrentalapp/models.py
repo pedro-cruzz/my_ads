@@ -18,6 +18,9 @@ class Actor(models.Model):
         managed = False
         db_table = 'actor'
 
+    def __str__(self):
+        return f"{self.first_name }{self.last_name}"
+
 
 class Address(models.Model):
     address_id = models.AutoField(primary_key=True)
@@ -135,15 +138,19 @@ class City(models.Model):
         managed = False
         db_table = 'city'
 
-
 class Country(models.Model):
     country_id = models.AutoField(primary_key=True)
     country = models.CharField(max_length=50)
     last_update = models.DateTimeField()
 
+    def __str__(self):
+        return self.country
+    
     class Meta:
         managed = False
         db_table = 'country'
+
+        
 
 
 class Customer(models.Model):
@@ -161,6 +168,9 @@ class Customer(models.Model):
     class Meta:
         managed = False
         db_table = 'customer'
+
+    def __str__(self):
+        return f"{self.first_name }{self.last_name}"
 
 
 class DjangoAdminLog(models.Model):

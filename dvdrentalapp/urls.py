@@ -21,8 +21,22 @@ urlpatterns = [
     path('salva', views.salva, name='salva'),
     path('category_form/', views.category_form, name='category_form'),
 
+     # search + form category (edite e adcione)
+    path('lista_category_form/', views.lista_category_form, name='lista_category_form'),
+    path('add_category/', views.add_category, name="add_category"),
+    path('edit_category_form/<int:id>/', views.edit_category, name="edit_category"),
+
     # search + form (edite e adcione)
     path('add_customer/', views.add_customer, name="add_customer"),
     path('edit_customer/<int:id>/', views.edit_customer, name="edit_customer"),
-    path('lista_customer_form/', views.lista_customer_form, name='lista_customer_form')
+    path('lista_customer_form/', views.lista_customer_form, name='lista_customer_form'),
+
+    #cadastrar usuario
+    path('cadastrar_usuario', views.cadastrar_usuario, name="cadastrar_usuario"),
+    path('logar_usuario', views.logar_usuario, name="logar_usuario"),
+    path('logado', views.logado, name="logado"),
+    path('logout/', views.deslogar_usuario, name='logout'),
+    path('alterar_senha/', views.alterar_senha, name='alterar_senha'),
+    path('', views.home, name='home'),
+
 ]

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h1>Category</h1>
+
+    <form action="{% url 'lista_category_form' %}" method="get">
+        <label for="search_name">Procura pelo first_name:</label>
+        <input type="text" id="search_name" name="search_name">
+        <button type="submit">Procurar</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>name</th>
+                <th>Last update</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in lista_category_form %}
+                <tr>
+                    <td data-label="id">{{ x.category_id }}</td>
+                    <td data-label="first_name">{{ x.name }}</td>
+                    <td data-label="last_name">{{ x.last_update }}</td>
+                    <td data-label="">
+                        <a href="{% url 'edit_category' x.category_id %}"><button>edite</button></a>
+                        <a href="{% url 'add_category' %}"><button>novo</button></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

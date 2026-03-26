@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Category</title>
+</head>
+<body>
+
+    <h2>Editar Category</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Salvar">
+    </form>
+
+</body>
+</html>
