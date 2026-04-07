@@ -10,6 +10,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .forms import CustomerForm, CategoryForm
 
+from .forms import CustomUserCreationForm
+
 
 def customers(request):
     mycustomers = Customer.objects.all().values()
@@ -319,12 +321,14 @@ def add_category(request):
 #cadastrar usuario
 def cadastrar_usuario(request):
     if request.method == "POST":
-        form_usuario = UserCreationForm(request.POST)
+        # Usando o formulário customizado
+        form_usuario = CustomUserCreationForm(request.POST)
         if form_usuario.is_valid():
             form_usuario.save()
             return redirect('salva')
     else:
-        form_usuario = UserCreationForm()
+        
+        form_usuario = CustomUserCreationForm()
 
     return render(request, 'cadastro.html', {'form_usuario': form_usuario})
 

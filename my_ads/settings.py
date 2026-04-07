@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'dvdrentalapp',
+    'dvdrentalapp copy',
 ]
+
+AUTH_USER_MODEL = 'dvdrentalapp.CustomUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -103,6 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
     #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     # },
 ]
+
 
 
 # Internationalization
